@@ -28,7 +28,34 @@ public class GridUtility {
         return print(grid, emptyMap(), SimplePrintableGridElement.of(" "));
     }
 
-    // Prints the grid starting with MinX,MaxY in the top left
+    // Prints the grid starting with MinX,MinY in the top left
+    public static <T extends PrintableGridElement> String printVerticallyMirrored(Map<Point, T> grid, Map<Point, T> overrides, PrintableGridElement defaultElement) {
+
+        int minX = getMinX(grid);
+        int maxX = getMaxX(grid);
+        int minY = getMinY(grid);
+        int maxY = getMaxY(grid);
+
+        Point point;
+        StringBuilder sb = new StringBuilder().append("\n\n");
+        PrintableGridElement element;
+        for (int i = minY; i <= maxY; i++) {
+            for (int j = minX; j <= maxX; j++) {
+                point = new Point(j, i);
+                element = overrides.getOrDefault(point, grid.getOrDefault(point, null));
+                // Above catches if point is missing from grid, below catches if point is present but has a null value
+                if (element == null) {
+                    element = defaultElement;
+                }
+                sb.append(element.print());
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
+
+        // Prints the grid starting with MinX,MaxY in the top left
     public static <T extends PrintableGridElement> String print(Map<Point, T> grid, Map<Point, T> overrides, PrintableGridElement defaultElement) {
 
         int minX = getMinX(grid);
