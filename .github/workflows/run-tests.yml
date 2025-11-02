@@ -3,7 +3,7 @@ name: Run Spring Boot Tests
 on:
   push:
     branches:
-      - master
+      - feature/java-25-upgrade
   pull_request:
 
 jobs:
