@@ -1,12 +1,10 @@
 package com.adventofcode.year2024.day4;
 
-
 import com.adventofcode.common.grid.ConstructableGridElement;
-import com.adventofcode.common.grid.PrintableGridElement;
 import lombok.Getter;
 
 @Getter
-public enum GridElement implements PrintableGridElement, ConstructableGridElement<GridElement> {
+public enum GridElement implements ConstructableGridElement<GridElement> {
 
     X("X"), M("M"), A("A"), S("S"), SPACE(" ");
 
