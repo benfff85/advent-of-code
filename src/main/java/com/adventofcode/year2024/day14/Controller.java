@@ -68,8 +68,7 @@ public class Controller extends SolutionController {
                 "X.............................X",
                 "X.............................X",
                 "X.............................X",
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        ), GridElement.class, List.of(GridElement.SPACE));
+                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"), GridElement.class, List.of(GridElement.SPACE));
         GridUtility.rotateGridClockwise(pattern);
         GridUtility.rotateGridClockwise(pattern);
 
@@ -100,7 +99,7 @@ public class Controller extends SolutionController {
                 quadrantMap.set(3, quadrantMap.get(3) + 1);
             }
         });
-        return quadrantMap.stream().reduce(1, Math::multiplyExact);
+        return quadrantMap.stream().mapToInt(Integer::intValue).reduce(1, Math::multiplyExact);
     }
 
 }
