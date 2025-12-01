@@ -2,9 +2,9 @@ name: Run Spring Boot Tests
 
 on:
   push:
-    branches: [ "master", "feature*" ]
+    branches: [ "master", "feature/**" ]
   pull_request:
-    branches: [ "master", "feature*" ]
+    branches: [ "master", "feature/**" ]
 
 jobs:
   test:
