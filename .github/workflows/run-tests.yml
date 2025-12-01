@@ -2,9 +2,9 @@ name: Run Spring Boot Tests
 
 on:
   push:
-    branches: [ "master", "upgrade-springboot-4.0.0" ]
+    branches: [ "master", "feature*" ]
   pull_request:
-    branches: [ "master", "upgrade-springboot-4.0.0" ]
+    branches: [ "master", "feature*" ]
 
 jobs:
   test:
