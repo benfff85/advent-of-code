@@ -15,12 +15,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class AdventOfCodeTests {
 
     private final com.adventofcode.year2025.day1.Controller day1Controller;
+    private final com.adventofcode.year2025.day2.Controller day2Controller;
 
     @Test
     void testDay1() {
         DailyAnswer answer = day1Controller.execute();
         assertEquals(1168, answer.getPart1());
         assertEquals(7199, answer.getPart2());
+    }
+
+    @Test
+    void testDay2() {
+        DailyAnswer answer = day2Controller.execute();
+        assertEquals(32976912643L, answer.getPart1());
+        assertEquals(54446379122L, answer.getPart2());
     }
 
 }
