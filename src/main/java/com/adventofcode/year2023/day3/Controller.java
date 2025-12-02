@@ -91,7 +91,7 @@ public class Controller extends SolutionController {
                         part.addElement(point, Integer.parseInt(gridElement.print()));
                         parts.add(part);
                         isOngoingPartNumber = true;
-                    } else {
+                    } else if (part != null) {
                         part.addElement(point, Integer.parseInt(gridElement.print()));
                     }
 

@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-
 @Slf4j
 @Component("controller-2023-8")
 public class Controller extends SolutionController {
@@ -44,7 +43,7 @@ public class Controller extends SolutionController {
         Long stepCount = nodes.values()
                 .parallelStream()
                 .filter(n -> n.getId().endsWith("A"))
-                .map(n -> getSteps(new LoopingIterator<>(directions), n, "Z"))
+                .mapToLong(n -> getSteps(new LoopingIterator<>(directions), n, "Z"))
                 .reduce(1L, ArithmeticUtils::lcm);
 
         answer.setPart2(stepCount);

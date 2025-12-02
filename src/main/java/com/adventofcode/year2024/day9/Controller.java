@@ -3,15 +3,11 @@ package com.adventofcode.year2024.day9;
 import com.adventofcode.common.DailyAnswer;
 import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
-import com.adventofcode.common.grid.GridUtility;
-import com.adventofcode.common.grid.SimplePrintableGridElement;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.iterators.LoopingIterator;
-import org.apache.commons.math3.util.Combinations;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
 import java.util.List;
 import java.util.*;
 
@@ -47,18 +43,18 @@ public class Controller extends SolutionController {
     private void compressDiskWithoutFragmentation(List<Integer> disk) {
         List<Integer> processedFileIds = new ArrayList<>();
         Map<Integer, Integer> frequencyMap = CollectionUtils.getCardinalityMap(disk);
-        for(int i = disk.size() - 1; i >= 0; i--) {
+        for (int i = disk.size() - 1; i >= 0; i--) {
 
             Integer fileId = disk.get(i);
 
-            if(fileId == null || processedFileIds.contains(fileId)) {
+            if (fileId == null || processedFileIds.contains(fileId)) {
                 continue;
             }
 
             long fileSize = frequencyMap.get(fileId);
             Integer z = getFirstOccurrenceOfSequence(disk, null, fileSize);
-            if(nonNull(z) && z < i) {
-                for(int j=0; j<fileSize; j++) {
+            if (nonNull(z) && z < i) {
+                for (int j = 0; j < fileSize; j++) {
                     disk.set(z + j, fileId);
                     disk.set(i - j, null);
                 }
@@ -71,16 +67,16 @@ public class Controller extends SolutionController {
     }
 
     private Integer getFirstOccurrenceOfSequence(List<Integer> list, Integer value, long count) {
-        for(int i=0; i< list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             boolean found = true;
-            for(int j=0; j < count; j++) {
-                if(!Objects.equals(list.get(i + j), value)) {
+            for (int j = 0; j < count; j++) {
+                if (!Objects.equals(list.get(i + j), value)) {
                     found = false;
                     break;
                 }
             }
 
-            if(found) {
+            if (found) {
                 return i;
             }
 
@@ -88,19 +84,18 @@ public class Controller extends SolutionController {
         return null;
     }
 
-
     private List<Integer> initDisk(String input) {
         LoopingIterator<String> typeIterator = new LoopingIterator<>(List.of("file", "free"));
         List<Integer> disk = new ArrayList<>();
         int fileId = 0;
         for (Integer i : Arrays.stream(input.split("")).map(Integer::parseInt).toList()) {
-            if(typeIterator.next().equals("file")) {
-                for(int j=0; j<i; j++) {
+            if (typeIterator.next().equals("file")) {
+                for (int j = 0; j < i; j++) {
                     disk.add(fileId);
                 }
                 fileId++;
             } else {
-                for(int j=0; j<i; j++) {
+                for (int j = 0; j < i; j++) {
                     disk.add(null);
                 }
             }
@@ -111,13 +106,13 @@ public class Controller extends SolutionController {
 
     private void compressDisk(List<Integer> disk) {
         int backwardsIndex = disk.size() - 1;
-        for(int i=0; i<backwardsIndex; i++) {
-            if(disk.get(i) == null) {
+        for (int i = 0; i < backwardsIndex; i++) {
+            if (disk.get(i) == null) {
 
-                while(disk.get(backwardsIndex) == null) {
+                while (disk.get(backwardsIndex) == null) {
                     backwardsIndex--;
                 }
-                if(i < backwardsIndex) { // edge case
+                if (i < backwardsIndex) { // edge case
                     disk.set(i, disk.get(backwardsIndex));
                     disk.set(backwardsIndex, null);
                 }
@@ -128,8 +123,8 @@ public class Controller extends SolutionController {
 
     private static Long calculateChecksum(List<Integer> disk) {
         long checksum = 0L;
-        for (int i = 0; i< disk.size(); i++) {
-            if(disk.get(i) != null) {
+        for (int i = 0; i < disk.size(); i++) {
+            if (disk.get(i) != null) {
                 checksum += ((long) i * disk.get(i));
             }
         }
