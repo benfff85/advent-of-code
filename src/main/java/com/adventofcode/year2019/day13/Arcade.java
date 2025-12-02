@@ -78,8 +78,8 @@ public class Arcade {
     }
 
     private String print() {
-        int maxX = grid.keySet().stream().map(p -> p.x).reduce(Integer::max).orElseThrow();
-        int maxY = grid.keySet().stream().map(p -> p.y).reduce(Integer::max).orElseThrow();
+        int maxX = grid.keySet().stream().mapToInt(p -> p.x).max().orElseThrow();
+        int maxY = grid.keySet().stream().mapToInt(p -> p.y).max().orElseThrow();
 
         int value;
         StringBuilder sb = new StringBuilder();

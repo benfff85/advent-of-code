@@ -6,7 +6,6 @@ import com.adventofcode.common.SolutionController;
 import com.adventofcode.common.grid.GridUtility;
 import com.adventofcode.common.grid.PrintableGridElement;
 import com.adventofcode.common.grid.SimplePrintableGridElement;
-import com.adventofcode.common.grid.SurroundingType;
 import com.adventofcode.year2019.day5.IntComputer;
 import com.adventofcode.year2019.day5.IntComputerContext;
 import lombok.extern.slf4j.Slf4j;
@@ -109,7 +108,7 @@ public class Controller extends SolutionController {
     }
 
     private void addStringAsInput(String string, Queue<BigInteger> inputs) {
-        string.chars().boxed().map(BigInteger::valueOf).forEach(inputs::add);
+        string.chars().mapToObj(c -> BigInteger.valueOf((long) c)).forEach(inputs::add);
         inputs.add(BigInteger.valueOf(10));
     }
 

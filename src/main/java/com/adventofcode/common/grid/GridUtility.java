@@ -55,7 +55,7 @@ public class GridUtility {
     }
 
 
-        // Prints the grid starting with MinX,MaxY in the top left
+    // Prints the grid starting with MinX,MaxY in the top left
     public static <T extends PrintableGridElement> String print(Map<Point, T> grid, Map<Point, T> overrides, PrintableGridElement defaultElement) {
 
         int minX = getMinX(grid);
@@ -109,18 +109,14 @@ public class GridUtility {
     }
 
     /**
-     * Returns all elements in a specified direction from the specific point.
-     * Path terminates when point is not in grid or when element of point is null.
-     * Specific element will be first in the list.
+     * Returns all elements in a specified direction from the specific point. Path terminates when point is not in grid or when element of point is null. Specific element will be first in the list.
      */
     public static <T> List<Map.Entry<Point, T>> getAdjacentElements(Map<Point, T> grid, Point point, Direction direction) {
         return getAdjacentElements(grid, point, direction, Integer.MAX_VALUE);
     }
 
     /**
-     * Returns all elements in a specified direction from the specific point.
-     * Path terminates when point is not in grid or when element of point is null or when maxElementCount is reached.
-     * Specific element will be first in the list.
+     * Returns all elements in a specified direction from the specific point. Path terminates when point is not in grid or when element of point is null or when maxElementCount is reached. Specific element will be first in the list.
      */
     public static <T> List<Map.Entry<Point, T>> getAdjacentElements(Map<Point, T> grid, Point point, Direction direction, Integer maxElementCount) {
 
@@ -142,8 +138,7 @@ public class GridUtility {
     }
 
     /**
-     * Returns a map of matched input patterns with the map consisting of the anchor point and then having a value of the matched pattern map.
-     * Input patters are in the form of a grid anchored at 0,0 with other values being relative to the anchor.
+     * Returns a map of matched input patterns with the map consisting of the anchor point and then having a value of the matched pattern map. Input patters are in the form of a grid anchored at 0,0 with other values being relative to the anchor.
      */
     public static <T> Map<Point, Map<Point, T>> getPatternMatches(Map<Point, T> grid, Map<Point, T> pattern) {
 
@@ -151,19 +146,19 @@ public class GridUtility {
         Map<Point, T> matchedPatternMap = new HashMap<>();
 
         // For every point in the grid check if there is a matching pattern anchored here
-        for(Point point : grid.keySet()) {
+        for (Point point : grid.keySet()) {
 
             boolean isMatch = true;
             for (Map.Entry<Point, T> patternElement : pattern.entrySet()) {
                 Point gridPoint = new Point(point.x + patternElement.getKey().x, point.y + patternElement.getKey().y);
-                if(!patternElement.getValue().equals(grid.get(gridPoint))) {
+                if (!patternElement.getValue().equals(grid.get(gridPoint))) {
                     isMatch = false;
                     break;
                 }
                 matchedPatternMap.put(gridPoint, grid.get(gridPoint));
             }
 
-            if(isMatch) {
+            if (isMatch) {
                 matchedPatternMaps.put(point, new HashMap<>(matchedPatternMap));
             }
 
@@ -177,6 +172,7 @@ public class GridUtility {
 
     /**
      * Rotates a grid clockwise with the top right quadrant moving to the bottom right and so on.
+     *
      * @param grid the grid to rotate
      */
     public static <T> void rotateGridClockwise(Map<Point, T> grid) {
@@ -186,8 +182,7 @@ public class GridUtility {
     }
 
     /**
-     * Get the map entry (point and element) directly adjacent to the given point in the specified direction.
-     * Returns null if key not present.
+     * Get the map entry (point and element) directly adjacent to the given point in the specified direction. Returns null if key not present.
      */
     public static <T> Map.Entry<Point, T> getAdjacentElement(Map<Point, T> grid, Point point, Direction direction) {
         try {
@@ -245,14 +240,10 @@ public class GridUtility {
      */
     public static <T> Map<Point, T> getAllElementsInDirectionRelativeToPoint(Map<Point, T> grid, Point point, Direction direction) {
         return switch (direction) {
-            case U ->
-                    grid.entrySet().stream().filter(e -> e.getKey().y >= point.y).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-            case D ->
-                    grid.entrySet().stream().filter(e -> e.getKey().y <= point.y).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-            case L ->
-                    grid.entrySet().stream().filter(e -> e.getKey().x <= point.x).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-            case R ->
-                    grid.entrySet().stream().filter(e -> e.getKey().x >= point.x).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+            case U -> grid.entrySet().stream().filter(e -> e.getKey().y >= point.y).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+            case D -> grid.entrySet().stream().filter(e -> e.getKey().y <= point.y).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+            case L -> grid.entrySet().stream().filter(e -> e.getKey().x <= point.x).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+            case R -> grid.entrySet().stream().filter(e -> e.getKey().x >= point.x).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
             default -> throw new AdventOfCodeException("Invalid direction");
         };
     }
@@ -262,23 +253,23 @@ public class GridUtility {
     }
 
     public static <T> Integer getMinX(Map<Point, T> grid) {
-        return grid.keySet().stream().map(p -> p.x).reduce(Integer::min).orElseThrow();
+        return grid.keySet().stream().mapToInt(p -> p.x).min().orElseThrow();
     }
 
     public static <T> Integer getMaxX(Map<Point, T> grid) {
-        return grid.keySet().stream().map(p -> p.x).reduce(Integer::max).orElseThrow();
+        return grid.keySet().stream().mapToInt(p -> p.x).max().orElseThrow();
     }
 
     public static <T> Integer getMinY(Map<Point, T> grid) {
-        return grid.keySet().stream().map(p -> p.y).reduce(Integer::min).orElseThrow();
+        return grid.keySet().stream().mapToInt(p -> p.y).min().orElseThrow();
     }
 
     public static <T> Integer getMaxY(Map<Point, T> grid) {
-        return grid.keySet().stream().map(p -> p.y).reduce(Integer::max).orElseThrow();
+        return grid.keySet().stream().mapToInt(p -> p.y).max().orElseThrow();
     }
 
     public static <T> Integer getMaxY(Map<Point, T> grid, Predicate<Map.Entry<Point, T>> predicate, Integer defaultResult) {
-        return grid.entrySet().stream().filter(predicate).map(e -> e.getKey().y).reduce(Integer::max).orElse(defaultResult);
+        return grid.entrySet().stream().filter(predicate).mapToInt(e -> e.getKey().y).max().orElse(defaultResult);
     }
 
     public static <T> Map<Point, T> getElementsByValue(Map<Point, T> grid, T input) {
@@ -297,8 +288,8 @@ public class GridUtility {
     /**
      * Constructs a square Grid, with (0,0) in the bottom, all elements must be specified in the elementClass but only the elements on the includeElements list will be included in the grid
      *
-     * @param input           input List of Strings, usually puzzle input
-     * @param elementClass    the class of the enum containing the elements and string values, for example GridElement.class
+     * @param input input List of Strings, usually puzzle input
+     * @param elementClass the class of the enum containing the elements and string values, for example GridElement.class
      * @param includeElements list of elements from the input to include in the grid, for example List.of(GridElement.ROCK)
      * @return A grid with elements of the specified type
      */
@@ -309,8 +300,8 @@ public class GridUtility {
     /**
      * Constructs a square Grid, with (0,0) in the bottom, all elements must be specified in the elementClass but only the elements not on the excludedElements list will be included in the grid
      *
-     * @param input           input List of Strings, usually puzzle input
-     * @param elementClass    the class of the enum containing the elements and string values, for example GridElement.class
+     * @param input input List of Strings, usually puzzle input
+     * @param elementClass the class of the enum containing the elements and string values, for example GridElement.class
      * @param excludeElements list of elements from the input to not include in the grid, for example List.of(GridElement.ROCK)
      * @return A grid with elements of the specified type
      */
@@ -321,7 +312,7 @@ public class GridUtility {
     /**
      * Constructs a square Grid, with (0,0) in the bottom left
      *
-     * @param input        input List of Strings, usually puzzle input
+     * @param input input List of Strings, usually puzzle input
      * @param elementClass the class of the enum containing the elements and string values, for example GridElement.class
      * @return A grid with elements of the specified type
      */
@@ -332,9 +323,9 @@ public class GridUtility {
     /**
      * Constructs a square Grid, with (0,0) in the bottom left
      *
-     * @param input         input List of Strings, usually puzzle input
-     * @param elementClass  the class of the enum containing the elements and string values, for example GridElement.class
-     * @param elementList   list of elements from the input to include or exclude in the grid, for example List.of(GridElement.ROCK)
+     * @param input input List of Strings, usually puzzle input
+     * @param elementClass the class of the enum containing the elements and string values, for example GridElement.class
+     * @param elementList list of elements from the input to include or exclude in the grid, for example List.of(GridElement.ROCK)
      * @param shouldInclude if true, only elements in the elementList will be included in the grid, if false, only elements not in the elementList will be included in the grid
      * @return A grid with elements of the specified type
      */
@@ -357,10 +348,10 @@ public class GridUtility {
     /**
      * Slides an element in a specified direction until it encounters another element, or until it reaches the cutOff point
      *
-     * @param grid      the grid to modify
-     * @param point     the point of the element to slide
+     * @param grid the grid to modify
+     * @param point the point of the element to slide
      * @param direction the direction to slide the element
-     * @param cutOff    the value to stop sliding at
+     * @param cutOff the value to stop sliding at
      * @return
      */
     public static <T> Map<Point, T> slideElementUntilEncounteringElement(Map<Point, T> grid, Point point, Direction direction, Integer cutOff) {

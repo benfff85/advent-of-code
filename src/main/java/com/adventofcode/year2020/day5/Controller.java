@@ -3,16 +3,10 @@ package com.adventofcode.year2020.day5;
 import com.adventofcode.common.DailyAnswer;
 import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
-import com.adventofcode.year2020.day4.Passport;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 @Slf4j
 @Component("controller-2020-5")
