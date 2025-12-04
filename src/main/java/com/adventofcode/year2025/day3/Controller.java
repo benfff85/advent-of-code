@@ -19,18 +19,17 @@ public class Controller extends SolutionController {
 
         List<BatteryBank> batteryBanks = puzzleInput.stream().map(BatteryBank::new).toList();
 
-        int totalOutput = 0;
+        long totalOutput = 0;
+        long totalOutputWithDisabledSafety = 0;
         for (BatteryBank batteryBank : batteryBanks) {
             log.info("Battery bank: {}", batteryBank);
-            log.info("Max joltage: {}", batteryBank.getMaxJoltage());
             totalOutput += batteryBank.getMaxJoltage();
+            totalOutputWithDisabledSafety += batteryBank.getMaxJoltageWithDisabledSafety();
         }
         log.info("Total output: {}", totalOutput);
         answer.setPart1(totalOutput);
-
-
-
-        answer.setPart2(null);
+        log.info("Total output with disabled safety: {}", totalOutputWithDisabledSafety);
+        answer.setPart2(totalOutputWithDisabledSafety);
 
         return answer;
 

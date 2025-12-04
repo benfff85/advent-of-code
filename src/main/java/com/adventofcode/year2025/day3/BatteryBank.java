@@ -4,45 +4,53 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Data
 public class BatteryBank {
 
     private final String rawBatteryBankString;
     public final List<Integer> batteries;
-    private Integer maxJoltage;
-    private Integer maxJoltageWithDisabledSafety;
+    private Long maxJoltage;
+    private Long maxJoltageWithDisabledSafety;
 
     public BatteryBank(String rawBatteryBankString) {
         this.rawBatteryBankString = rawBatteryBankString;
         this.batteries = rawBatteryBankString.chars().mapToObj(c -> c - '0').toList();
     }
 
-    public Integer getMaxJoltage() {
+    public Long getMaxJoltage() {
         if (maxJoltage == null) {
             maxJoltage = calculateMaxJoltage(2);
         }
         return maxJoltage;
     }
 
-    private Integer calculateMaxJoltage(int totalBatteriesToEnable) {
+    public Long getMaxJoltageWithDisabledSafety() {
+        if (maxJoltageWithDisabledSafety == null) {
+            maxJoltageWithDisabledSafety = calculateMaxJoltage(12);
+        }
+        return maxJoltageWithDisabledSafety;
+    }
 
-        // List<Integer> batteriesToEnable = new ArrayList<>();
+    private Long calculateMaxJoltage(int totalBatteriesToEnable) {
 
-        int leftValue = Collections.max(batteries.subList(0, batteries.size() - 1));
-        int leftIndex = batteries.indexOf(leftValue);
+        List<Integer> batteriesToEnable = new ArrayList<>();
+        int leftIndexBound = 0;
 
-        int rightValue = Collections.max(batteries.subList(leftIndex + 1, batteries.size()));
-        // int rightIndex = batteries.lastIndexOf(rightValue);
+        for (int i = 0; i < totalBatteriesToEnable; i++) {
+            batteriesToEnable.add(Collections.max(batteries.subList(leftIndexBound, batteries.size() - (totalBatteriesToEnable - (batteriesToEnable.size() + 1)))));
+            leftIndexBound = leftIndexBound + batteries.subList(leftIndexBound, batteries.size()).indexOf(batteriesToEnable.getLast()) + 1;
+        }
 
-        // return Integer.parseInt(String.valueOf(leftValue) + String.valueOf(rightValue));
-        return convertIntegersToConcatenatedString(List.of(leftValue, rightValue));
+        return convertIntegersToConcatenatedString(batteriesToEnable);
 
     }
 
 
-    private Integer convertIntegersToConcatenatedString(List<Integer> integers) {
-        return Integer.parseInt(integers.stream().map(String::valueOf).reduce("", String::concat));
+    private Long convertIntegersToConcatenatedString(List<Integer> integers) {
+        return Long.parseLong(integers.stream().map(String::valueOf).reduce("", String::concat));
     }
 
 }
