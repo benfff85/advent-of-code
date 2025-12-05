@@ -1,19 +1,15 @@
 package com.adventofcode.year2019;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.math.BigInteger;
+import java.util.Arrays;
+import org.junit.jupiter.api.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import com.adventofcode.common.DailyAnswer;
 import com.adventofcode.year2019.day8.Layer;
 import lombok.RequiredArgsConstructor;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import java.math.BigInteger;
-import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
@@ -117,14 +113,13 @@ class AdventOfCodeTests {
         assertEquals("""
 
 
-                          XX  X    XXX  XXXX XXX    XX XXXX XXX   \s
-                         X  X X    X  X X    X  X    X    X X  X  \s
-                         X    X    XXX  XXX  X  X    X   X  X  X  \s
-                         X XX X    X  X X    XXX     X  X   XXX   \s
-                         X  X X    X  X X    X    X  X X    X     \s
-                          XXX XXXX XXX  XXXX X     XX  XXXX X     \s
-                        """
-                , answer.getPart2());
+                  XX  X    XXX  XXXX XXX    XX XXXX XXX   \s
+                 X  X X    X  X X    X  X    X    X X  X  \s
+                 X    X    XXX  XXX  X  X    X   X  X  X  \s
+                 X XX X    X  X X    XXX     X  X   XXX   \s
+                 X  X X    X  X X    X    X  X X    X     \s
+                  XXX XXXX XXX  XXXX X     XX  XXXX X     \s
+                """, answer.getPart2());
     }
 
     @Test

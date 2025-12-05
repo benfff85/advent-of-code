@@ -1,28 +1,18 @@
 package com.adventofcode.year2022.day8;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.max;
+import java.awt.Point;
+import java.util.*;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 @Component("controller-2022-8")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2022/day-8.txt");
-    }
 
     public DailyAnswer execute() {
 
@@ -40,7 +30,6 @@ public class Controller extends SolutionController {
 
         return answer;
     }
-
 
 
 

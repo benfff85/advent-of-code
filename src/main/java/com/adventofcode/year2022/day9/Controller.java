@@ -1,31 +1,19 @@
 package com.adventofcode.year2022.day9;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import com.adventofcode.common.grid.GridUtility;
-import com.adventofcode.common.grid.PointUtil;
-import com.adventofcode.common.grid.PrintableGridElement;
-import com.adventofcode.common.grid.SimplePrintableGridElement;
-import com.adventofcode.common.grid.Direction;
-import lombok.extern.slf4j.Slf4j;
+import static java.lang.Integer.parseInt;
+import java.awt.Point;
+import java.util.*;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-
-import java.awt.*;
-import java.util.List;
-import java.util.*;
-
-import static java.lang.Integer.parseInt;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import com.adventofcode.common.grid.*;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 @Component("controller-2022-9")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2022/day-9.txt");
-    }
 
     public DailyAnswer execute() {
 

@@ -1,32 +1,21 @@
 package com.adventofcode.year2023.day16;
 
-import com.adventofcode.common.AdventOfCodeException;
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import com.adventofcode.common.grid.Direction;
-import com.adventofcode.common.grid.GridUtility;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.awt.Point;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.*;
+import com.adventofcode.common.grid.Direction;
+import com.adventofcode.common.grid.GridUtility;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 @Component("controller-2023-16")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2023/day-16.txt");
-    }
 
     public DailyAnswer execute() {
 

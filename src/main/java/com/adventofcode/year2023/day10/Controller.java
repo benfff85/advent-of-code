@@ -1,25 +1,17 @@
 package com.adventofcode.year2023.day10;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import com.adventofcode.common.grid.Direction;
-import com.adventofcode.common.grid.GridUtility;
-import com.adventofcode.common.grid.PointUtil;
-import com.adventofcode.common.grid.SurroundingType;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.List;
-import java.util.Queue;
-import java.util.*;
-import java.util.stream.Collectors;
-
 import static com.adventofcode.common.grid.Direction.D;
 import static com.adventofcode.common.grid.Direction.U;
 import static com.adventofcode.year2023.day10.GridElement.*;
+import java.awt.Point;
+import java.util.*;
+import java.util.stream.Collectors;
+import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import com.adventofcode.common.grid.*;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
@@ -30,11 +22,6 @@ public class Controller extends SolutionController {
     private static final List<GridElement> rightSupportedPipes = List.of(LR_PIPE, LD_PIPE, UL_PIPE);
     private static final List<GridElement> downSupportedPipes = List.of(UD_PIPE, RU_PIPE, UL_PIPE);
     private static final List<GridElement> leftSupportedPipes = List.of(LR_PIPE, RU_PIPE, DR_PIPE);
-
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2023/day-10.txt");
-    }
 
     public DailyAnswer execute() {
 

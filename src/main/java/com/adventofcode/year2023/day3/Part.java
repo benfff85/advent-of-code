@@ -1,14 +1,10 @@
 package com.adventofcode.year2023.day3;
 
+import java.awt.Point;
+import java.util.*;
+import java.util.stream.Collectors;
 import com.adventofcode.common.grid.PrintableGridElement;
 import lombok.Data;
-
-import java.awt.*;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Data
 public class Part {

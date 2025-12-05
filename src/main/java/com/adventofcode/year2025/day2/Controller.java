@@ -2,22 +2,14 @@ package com.adventofcode.year2025.day2;
 
 import java.util.Arrays;
 import java.util.List;
-
 import org.springframework.stereotype.Component;
-
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component("controller-2025-2")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2025/day-2.txt");
-    }
 
     public DailyAnswer execute() {
 

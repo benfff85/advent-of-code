@@ -1,18 +1,13 @@
 package com.adventofcode.year2023.day14;
 
+import java.awt.Point;
+import java.util.*;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import com.adventofcode.common.grid.Direction;
 import com.adventofcode.common.grid.GridUtility;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 
 @Slf4j
@@ -22,10 +17,6 @@ public class Controller extends SolutionController {
     private Map<Point, GridElement> grid;
     private int maxY;
     private int maxX;
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2023/day-14.txt");
-    }
 
     public DailyAnswer execute() {
 

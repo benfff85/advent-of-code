@@ -1,23 +1,16 @@
 package com.adventofcode.year2019.day3;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
+import static java.lang.Math.abs;
 import java.util.Arrays;
 import java.util.List;
-
-import static java.lang.Math.abs;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component("controller-day-3")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2019/day-3.txt");
-    }
 
     public DailyAnswer execute() {
         List<Instruction> wireInstructionList1 = Arrays.stream(puzzleInput.get(0).split(",")).map(Instruction::new).toList();

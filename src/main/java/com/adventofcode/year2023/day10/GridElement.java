@@ -1,10 +1,9 @@
 package com.adventofcode.year2023.day10;
 
 
+import java.util.Arrays;
 import com.adventofcode.common.grid.PrintableGridElement;
 import lombok.Getter;
-
-import java.util.Arrays;
 
 @Getter
 public enum GridElement implements PrintableGridElement {

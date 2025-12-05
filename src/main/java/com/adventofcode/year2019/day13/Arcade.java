@@ -1,17 +1,14 @@
 package com.adventofcode.year2019.day13;
 
-import com.adventofcode.year2019.day5.IntComputer;
-import com.adventofcode.year2019.day5.IntComputerContext;
-import lombok.extern.slf4j.Slf4j;
-
-import java.awt.*;
-import java.math.BigInteger;
-import java.util.List;
-import java.util.*;
-
 import static java.lang.Boolean.TRUE;
 import static java.math.BigInteger.ONE;
 import static java.math.BigInteger.ZERO;
+import java.awt.Point;
+import java.math.BigInteger;
+import java.util.*;
+import com.adventofcode.year2019.day5.IntComputer;
+import com.adventofcode.year2019.day5.IntComputerContext;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class Arcade {

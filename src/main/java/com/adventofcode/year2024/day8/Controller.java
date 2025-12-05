@@ -1,27 +1,20 @@
 package com.adventofcode.year2024.day8;
 
+import java.awt.Point;
+import java.util.*;
+import org.apache.commons.math3.util.Combinations;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import com.adventofcode.common.grid.GridUtility;
 import com.adventofcode.common.grid.SimplePrintableGridElement;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.math3.util.Combinations;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.List;
-import java.util.*;
 
 @Slf4j
 @Component("controller-2024-8")
 public class Controller extends SolutionController {
 
     private final Map<Point, SimplePrintableGridElement> grid = new HashMap<>();
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2024/day-8.txt");
-    }
 
     public DailyAnswer execute() {
 
@@ -31,10 +24,10 @@ public class Controller extends SolutionController {
         frequencies.remove(SimplePrintableGridElement.of("."));
 
         Set<Point> antinode = new HashSet<>();
-        for(SimplePrintableGridElement frequency : frequencies) {
+        for (SimplePrintableGridElement frequency : frequencies) {
             List<Point> frequencyPoints = new ArrayList<>(GridUtility.getElementsByValue(grid, frequency).keySet());
             Combinations combinations = new Combinations(frequencyPoints.size(), 2);
-            for(int[] combination : combinations) {
+            for (int[] combination : combinations) {
                 Point p1 = frequencyPoints.get(combination[0]);
                 Point p2 = frequencyPoints.get(combination[1]);
                 antinode.add(new Point(p2.x + (p2.x - p1.x), p2.y + (p2.y - p1.y)));
@@ -48,15 +41,15 @@ public class Controller extends SolutionController {
 
 
         antinode.clear();
-        for(SimplePrintableGridElement frequency : frequencies) {
+        for (SimplePrintableGridElement frequency : frequencies) {
             List<Point> frequencyPoints = new ArrayList<>(GridUtility.getElementsByValue(grid, frequency).keySet());
             Combinations combinations = new Combinations(frequencyPoints.size(), 2);
-            for(int[] combination : combinations) {
+            for (int[] combination : combinations) {
                 Point p1 = frequencyPoints.get(combination[0]);
                 Point p2 = frequencyPoints.get(combination[1]);
                 int xDiff = p2.x - p1.x;
                 int yDiff = p2.y - p1.y;
-                for(int i=0; i <= 50; i++) {
+                for (int i = 0; i <= 50; i++) {
                     antinode.add(new Point(p2.x + (xDiff * i), p2.y + (yDiff * i)));
                     antinode.add(new Point(p1.x - (xDiff * i), p1.y - (yDiff * i)));
                 }

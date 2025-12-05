@@ -1,24 +1,17 @@
 package com.adventofcode.year2020.day3;
 
+import static java.util.stream.Collectors.toList;
+import java.util.List;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @Slf4j
 @Component("controller-2020-3")
 public class Controller extends SolutionController {
 
     private List<Row> treeMap;
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2020/day-3.txt");
-    }
 
     public DailyAnswer execute() {
         treeMap = puzzleInput.stream().map(Row::new).collect(toList());

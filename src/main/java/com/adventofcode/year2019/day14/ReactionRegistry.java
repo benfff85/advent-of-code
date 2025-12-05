@@ -1,11 +1,8 @@
 package com.adventofcode.year2019.day14;
 
-import lombok.extern.slf4j.Slf4j;
+import java.util.*;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component

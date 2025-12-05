@@ -1,13 +1,9 @@
 package com.adventofcode.year2023.day4;
 
-import lombok.Data;
-import org.apache.commons.collections4.CollectionUtils;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 import static org.apache.commons.lang3.StringUtils.isEmpty;
+import java.util.*;
+import org.apache.commons.collections4.CollectionUtils;
+import lombok.Data;
 
 @Data
 public class Card {

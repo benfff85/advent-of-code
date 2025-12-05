@@ -1,18 +1,12 @@
 package com.adventofcode.year2022.day12;
 
-import com.adventofcode.common.AdventOfCodeException;
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
+import java.awt.Point;
+import java.util.*;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.*;
 import com.adventofcode.common.grid.GridUtility;
 import com.adventofcode.common.grid.SurroundingType;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.List;
-import java.util.Queue;
-import java.util.*;
 
 
 @Slf4j
@@ -20,10 +14,6 @@ import java.util.*;
 public class Controller extends SolutionController {
 
     private Map<Point, LandSquare> heightMap;
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2022/day-12.txt");
-    }
 
     public DailyAnswer execute() {
 

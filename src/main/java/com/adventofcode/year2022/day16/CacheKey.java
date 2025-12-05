@@ -1,9 +1,8 @@
 package com.adventofcode.year2022.day16;
 
+import java.util.Set;
 import lombok.Builder;
 import lombok.Data;
-
-import java.util.Set;
 
 @Data
 @Builder

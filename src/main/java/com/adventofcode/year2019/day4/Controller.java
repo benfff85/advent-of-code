@@ -1,23 +1,17 @@
 package com.adventofcode.year2019.day4;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
 import static java.lang.Integer.parseInt;
 import static java.lang.Math.max;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component("controller-day-4")
 public class Controller extends SolutionController {
 
     private boolean isInitialMappingApplied = false;
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2019/day-4.txt");
-    }
 
     public DailyAnswer execute() {
         int lowerBound = parseInt(puzzleInput.get(0).split("-")[0]);
@@ -35,8 +29,7 @@ public class Controller extends SolutionController {
         int passwordCountWithRepeatingDigitsNotPartOfLargerGroup = 0;
 
         // A reasonable place to use recursion but not needed since stack depth is not dynamic
-        outermostLoop:
-        for (short a = calculateLoopStartingValue(initialA, (short) 0); a < 10; a++) {
+        outermostLoop: for (short a = calculateLoopStartingValue(initialA, (short) 0); a < 10; a++) {
             for (short b = calculateLoopStartingValue(initialB, a); b < 10; b++) {
                 for (short c = calculateLoopStartingValue(initialC, b); c < 10; c++) {
                     for (short d = calculateLoopStartingValue(initialD, c); d < 10; d++) {

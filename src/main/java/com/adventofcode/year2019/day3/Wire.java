@@ -1,10 +1,9 @@
 package com.adventofcode.year2019.day3;
 
-import com.adventofcode.common.grid.Direction;
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
+import com.adventofcode.common.grid.Direction;
+import lombok.Getter;
 
 
 @Getter

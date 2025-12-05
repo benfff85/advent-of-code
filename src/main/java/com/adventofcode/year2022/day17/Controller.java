@@ -1,34 +1,24 @@
 package com.adventofcode.year2022.day17;
 
+import static com.adventofcode.year2022.day17.RockType.*;
+import java.awt.Point;
+import java.util.*;
+import java.util.stream.Collectors;
+import org.apache.commons.collections4.IteratorUtils;
+import org.apache.commons.collections4.ResettableListIterator;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import com.adventofcode.common.grid.Direction;
 import com.adventofcode.common.grid.GridUtility;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.IteratorUtils;
-import org.apache.commons.collections4.ResettableListIterator;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.*;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static com.adventofcode.year2022.day17.RockType.*;
 
 
 @Slf4j
 @Component("controller-2022-17")
 public class Controller extends SolutionController {
 
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2022/day-17.txt");
-    }
-
-
     public DailyAnswer execute() {
-
         solvePart1();
         solvePart2();
         return answer;
@@ -129,9 +119,9 @@ public class Controller extends SolutionController {
         cache.get(rockType).putIfAbsent(initialTopology, new HashMap<>());
 
         // If gusts already exist confirm the target topology is the same, if gusts don't yet exist in cache add them along with the target topology
-        if(cache.get(rockType).get(initialTopology).containsKey(gustDirections)) {
+        if (cache.get(rockType).get(initialTopology).containsKey(gustDirections)) {
             log.info("Original rock index: {}", cache.get(rockType).get(initialTopology).get(gustDirections).getIndexOfOriginalRock());
-            if(!cache.get(rockType).get(initialTopology).get(gustDirections).getTopology().equals(postActionTopology)) {
+            if (!cache.get(rockType).get(initialTopology).get(gustDirections).getTopology().equals(postActionTopology)) {
                 log.error("ERROR, found in cache but differing target topology");
             }
         } else {
@@ -145,7 +135,7 @@ public class Controller extends SolutionController {
         // Get Topology from Grid as Integer List
         List<Integer> topology = new ArrayList<>(7);
         int maxY = findHeightOfRocks(grid);
-        for(int i=1; i<=7; i++) {
+        for (int i = 1; i <= 7; i++) {
             int finalI = i;
             topology.add(maxY - GridUtility.getMaxY(grid, gridEntry -> gridEntry.getValue().equals(GridElement.ROCK) && gridEntry.getKey().x == finalI, 0));
         }

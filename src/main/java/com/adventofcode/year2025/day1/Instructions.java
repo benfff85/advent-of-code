@@ -1,7 +1,6 @@
 package com.adventofcode.year2025.day1;
 
 import com.adventofcode.common.grid.Direction;
-
 import lombok.Data;
 
 @Data

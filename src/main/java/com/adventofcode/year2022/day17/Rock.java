@@ -1,13 +1,12 @@
 package com.adventofcode.year2022.day17;
 
+import java.awt.Point;
+import java.util.List;
+import java.util.Map;
+import org.apache.commons.collections4.CollectionUtils;
 import com.adventofcode.common.grid.Direction;
 import com.adventofcode.common.grid.PointUtil;
 import lombok.Getter;
-import org.apache.commons.collections4.CollectionUtils;
-
-import java.awt.*;
-import java.util.List;
-import java.util.Map;
 
 @Getter
 public class Rock {

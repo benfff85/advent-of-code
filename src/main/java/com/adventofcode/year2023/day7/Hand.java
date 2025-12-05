@@ -1,14 +1,12 @@
 package com.adventofcode.year2023.day7;
 
-import lombok.Data;
-
-import java.util.List;
-import java.util.Map;
-
 import static com.adventofcode.year2023.day7.HandType.*;
 import static java.lang.Integer.parseInt;
 import static java.util.Arrays.stream;
 import static org.apache.commons.collections4.CollectionUtils.getCardinalityMap;
+import java.util.List;
+import java.util.Map;
+import lombok.Data;
 
 @Data
 public class Hand implements Comparable<Hand> {

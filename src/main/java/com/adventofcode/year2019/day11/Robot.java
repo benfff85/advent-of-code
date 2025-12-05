@@ -1,22 +1,17 @@
 package com.adventofcode.year2019.day11;
 
-import com.adventofcode.common.grid.PointUtil;
+import static com.adventofcode.common.grid.Direction.U;
+import static com.adventofcode.year2019.day11.TurnDirection.CCW90;
+import static com.adventofcode.year2019.day11.TurnDirection.CW90;
+import static java.util.Objects.requireNonNull;
+import java.awt.Point;
+import java.math.BigInteger;
+import java.util.*;
 import com.adventofcode.common.grid.Direction;
+import com.adventofcode.common.grid.PointUtil;
 import com.adventofcode.year2019.day5.IntComputer;
 import com.adventofcode.year2019.day5.IntComputerContext;
 import lombok.extern.slf4j.Slf4j;
-
-import java.awt.*;
-import java.math.BigInteger;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import static com.adventofcode.year2019.day11.TurnDirection.CCW90;
-import static com.adventofcode.year2019.day11.TurnDirection.CW90;
-import static com.adventofcode.common.grid.Direction.*;
-import static java.util.Objects.requireNonNull;
 
 @Slf4j
 public class Robot {

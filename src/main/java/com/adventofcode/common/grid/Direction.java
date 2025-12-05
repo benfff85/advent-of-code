@@ -1,10 +1,9 @@
 package com.adventofcode.common.grid;
 
 
-import lombok.Getter;
-
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
 public enum Direction {
 

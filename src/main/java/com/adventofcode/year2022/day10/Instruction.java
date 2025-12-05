@@ -1,8 +1,7 @@
 package com.adventofcode.year2022.day10;
 
-import lombok.Data;
-
 import static java.lang.Integer.parseInt;
+import lombok.Data;
 
 @Data
 public class Instruction {

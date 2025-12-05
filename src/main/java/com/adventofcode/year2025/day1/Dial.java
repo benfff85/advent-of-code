@@ -1,12 +1,10 @@
 package com.adventofcode.year2025.day1;
 
-import com.adventofcode.common.CircularList;
-import com.adventofcode.common.grid.Direction;
-
-import lombok.Data;
-
 import java.util.List;
 import java.util.stream.IntStream;
+import com.adventofcode.common.CircularList;
+import com.adventofcode.common.grid.Direction;
+import lombok.Data;
 
 @Data
 public class Dial {

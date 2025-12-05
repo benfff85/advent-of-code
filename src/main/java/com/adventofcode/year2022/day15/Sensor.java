@@ -1,16 +1,14 @@
 package com.adventofcode.year2022.day15;
 
-import com.adventofcode.common.grid.PointUtil;
-import lombok.Data;
+import static java.lang.Math.abs;
+import java.awt.Point;
+import java.util.Arrays;
+import java.util.List;
 import org.apache.commons.lang3.CharSet;
 import org.apache.commons.lang3.CharSetUtils;
 import org.apache.commons.math3.util.Pair;
-
-import java.awt.*;
-import java.util.Arrays;
-import java.util.List;
-
-import static java.lang.Math.abs;
+import com.adventofcode.common.grid.PointUtil;
+import lombok.Data;
 
 @Data
 public class Sensor {

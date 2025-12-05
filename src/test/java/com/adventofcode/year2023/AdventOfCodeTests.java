@@ -1,15 +1,12 @@
 package com.adventofcode.year2023;
 
 
-import com.adventofcode.common.DailyAnswer;
-import lombok.RequiredArgsConstructor;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.adventofcode.common.DailyAnswer;
+import lombok.RequiredArgsConstructor;
 
 
 @SpringBootTest
@@ -45,7 +42,8 @@ class AdventOfCodeTests {
     void testDay2() {
         DailyAnswer answer = day2Controller.execute();
         assertEquals(2256, answer.getPart1());
-        assertEquals(74229, answer.getPart2());    }
+        assertEquals(74229, answer.getPart2());
+    }
 
     @Test
     void testDay3() {

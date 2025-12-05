@@ -1,16 +1,13 @@
 package com.adventofcode.year2019.day9;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import com.adventofcode.year2019.day5.IntComputer;
-import com.adventofcode.year2019.day5.IntComputerContext;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
 import java.math.BigInteger;
 import java.util.LinkedList;
 import java.util.List;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.*;
+import com.adventofcode.year2019.day5.IntComputer;
+import com.adventofcode.year2019.day5.IntComputerContext;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component("controller-day-9")
@@ -18,6 +15,7 @@ public class Controller extends SolutionController {
 
     private final IntComputer intComputer;
 
+    // TODO remove constructor
     public Controller(InputHelper inputHelper) {
         super(inputHelper, "puzzle-input/2019/day-9.txt");
         intComputer = new IntComputer();

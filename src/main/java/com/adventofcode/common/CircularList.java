@@ -21,8 +21,7 @@ public class CircularList<T> {
     }
 
     /**
-     * Moves the cursor by the specified number of steps (positive or negative)
-     * and returns the element at the new position.
+     * Moves the cursor by the specified number of steps (positive or negative) and returns the element at the new position.
      *
      * @param steps number of steps to move (can be negative)
      * @return the element at the new position

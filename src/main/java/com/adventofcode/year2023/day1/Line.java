@@ -1,8 +1,8 @@
 package com.adventofcode.year2023.day1;
 
+import org.apache.commons.lang3.StringUtils;
 import com.adventofcode.common.AdventOfCodeException;
 import lombok.Data;
-import org.apache.commons.lang3.StringUtils;
 
 @Data
 public class Line {

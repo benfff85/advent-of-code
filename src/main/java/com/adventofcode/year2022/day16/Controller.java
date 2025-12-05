@@ -1,18 +1,13 @@
 package com.adventofcode.year2022.day16;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
+import static java.util.Objects.nonNull;
+import java.util.*;
+import java.util.stream.Collectors;
 import org.apache.commons.collections4.map.LRUMap;
 import org.springframework.stereotype.Component;
-
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import static java.util.Objects.nonNull;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
@@ -22,10 +17,6 @@ public class Controller extends SolutionController {
     private final Map<CacheKey, Integer> cache = new LRUMap<>(2500000);
     private final Set<String> openValves = new HashSet<>();
     private int maxMinutesRemainingExited = 0;
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2022/day-16.txt");
-    }
 
     public DailyAnswer execute() {
 

@@ -1,11 +1,10 @@
 package com.adventofcode.year2024.day13;
 
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.math3.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.math3.util.Pair;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Data
@@ -30,12 +29,12 @@ public class ClawMachine {
         prizeLocationY = Long.parseLong(stringList.get(2).split("=")[2]);
 
         Pair<Long, Long> result1 = LinearEquationSolver.solveEquations(axMagnitude, bxMagnitude, ayMagnitude, byMagnitude, prizeLocationX, prizeLocationY);
-        if(result1 != null) {
+        if (result1 != null) {
             buttonPressOptions.add(new ButtonPressRecord(result1.getFirst(), result1.getSecond()));
         }
 
         Pair<Long, Long> result2 = LinearEquationSolver.solveEquations(axMagnitude, bxMagnitude, ayMagnitude, byMagnitude, (double) prizeLocationX + 10000000000000L, (double) prizeLocationY + 10000000000000L);
-        if(result2 != null) {
+        if (result2 != null) {
             buttonPressOptionsPart2.add(new ButtonPressRecord(result2.getFirst(), result2.getSecond()));
         }
 

@@ -1,11 +1,9 @@
 package com.adventofcode.year2019.day6;
 
-import lombok.Data;
-
+import static java.util.Objects.nonNull;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.Objects.nonNull;
+import lombok.Data;
 
 @Data
 public class SpaceObject {

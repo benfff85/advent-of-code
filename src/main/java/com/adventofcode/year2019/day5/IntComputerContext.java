@@ -1,12 +1,9 @@
 package com.adventofcode.year2019.day5;
 
+import java.math.BigInteger;
+import java.util.*;
 import lombok.Builder;
 import lombok.Data;
-
-import java.math.BigInteger;
-import java.util.Deque;
-import java.util.List;
-import java.util.Queue;
 
 @Data
 @Builder

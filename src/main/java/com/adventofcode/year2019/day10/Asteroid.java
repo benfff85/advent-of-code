@@ -1,13 +1,8 @@
 package com.adventofcode.year2019.day10;
 
-import lombok.Getter;
-
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.TreeMap;
-
 import static java.util.Objects.isNull;
+import java.util.*;
+import lombok.Getter;
 
 @Getter
 public class Asteroid {

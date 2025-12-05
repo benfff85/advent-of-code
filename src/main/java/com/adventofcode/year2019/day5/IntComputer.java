@@ -1,14 +1,10 @@
 package com.adventofcode.year2019.day5;
 
+import static com.adventofcode.year2019.day5.ParameterMode.*;
+import java.math.BigInteger;
+import java.util.*;
 import com.adventofcode.common.AdventOfCodeException;
 import lombok.extern.slf4j.Slf4j;
-
-import java.math.BigInteger;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
-import static com.adventofcode.year2019.day5.ParameterMode.*;
 
 @Slf4j
 public class IntComputer {
@@ -24,7 +20,7 @@ public class IntComputer {
                 .isRunning(true)
                 .relativeBase(0)
                 .build())
-                .getOutputs().pollLast();
+                        .getOutputs().pollLast();
     }
 
     public IntComputerContext process(IntComputerContext inputContext) {

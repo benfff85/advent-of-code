@@ -1,26 +1,19 @@
 package com.adventofcode.year2024.day4;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import com.adventofcode.common.grid.GridUtility;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
+import static com.adventofcode.common.grid.GridUtility.constructGrid;
+import java.awt.Point;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
-
-import static com.adventofcode.common.grid.GridUtility.constructGrid;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import com.adventofcode.common.grid.GridUtility;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component("controller-2024-4")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2024/day-4.txt");
-    }
 
     public DailyAnswer execute() {
 
@@ -34,8 +27,7 @@ public class Controller extends SolutionController {
                 "X   ",
                 " M  ",
                 "  A ",
-                "   S"
-        ), GridElement.class, List.of(GridElement.SPACE));
+                "   S"), GridElement.class, List.of(GridElement.SPACE));
         count += countRotatedPatternMatches(grid, pattern);
 
         answer.setPart1(count);
@@ -45,8 +37,7 @@ public class Controller extends SolutionController {
         pattern = GridUtility.constructGridWithoutSelectElements(List.of(
                 "M S",
                 " A ",
-                "M S"
-        ), GridElement.class, List.of(GridElement.SPACE));
+                "M S"), GridElement.class, List.of(GridElement.SPACE));
         count = countRotatedPatternMatches(grid, pattern);
 
         answer.setPart2(count);

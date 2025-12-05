@@ -1,26 +1,18 @@
 package com.adventofcode.year2022.day15;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.math3.util.Pair;
-import org.springframework.stereotype.Component;
-
+import static java.util.Objects.nonNull;
 import java.util.Comparator;
 import java.util.List;
-
-import static java.util.Objects.nonNull;
+import org.apache.commons.math3.util.Pair;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 @Component("controller-2022-15")
 public class Controller extends SolutionController {
-
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2022/day-15.txt");
-    }
 
     public DailyAnswer execute() {
 

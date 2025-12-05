@@ -1,8 +1,6 @@
 package com.adventofcode.year2024.day2;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class Report {
@@ -25,7 +23,8 @@ public class Report {
     }
 
     public boolean isSafeWithOneLevelRemoved() {
-        if(isSafe()) return true;
+        if (isSafe())
+            return true;
 
         // Check if removing any single level makes it safe
         return IntStream.range(0, levels.size())

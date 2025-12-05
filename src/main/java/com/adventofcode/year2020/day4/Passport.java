@@ -1,27 +1,32 @@
 package com.adventofcode.year2020.day4;
 
-import jakarta.validation.Validation;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
-import lombok.Data;
-
-import java.util.regex.Matcher;
-
 import static java.util.Objects.nonNull;
 import static org.springframework.util.CollectionUtils.isEmpty;
+import java.util.regex.Matcher;
+import jakarta.validation.Validation;
+import jakarta.validation.constraints.*;
+import lombok.Data;
 
 @Data
 public class Passport {
 
-    @Min(1920) @Max(2002) private final String byr;
-    @Min(2010) @Max(2020) private final String iyr;
-    @Min(2020) @Max(2030) private final String eyr;
+    @Min(1920)
+    @Max(2002)
+    private final String byr;
+    @Min(2010)
+    @Max(2020)
+    private final String iyr;
+    @Min(2020)
+    @Max(2030)
+    private final String eyr;
     private final String hgt;
-    @Pattern(regexp = "#([0-9a-f]{6})") private final String hcl;
-    @Pattern(regexp = "amb|blu|brn|gry|grn|hzl|oth") private final String ecl;
-    @Max(999999999) @Size(min = 9, max = 9) private final String pid;
+    @Pattern(regexp = "#([0-9a-f]{6})")
+    private final String hcl;
+    @Pattern(regexp = "amb|blu|brn|gry|grn|hzl|oth")
+    private final String ecl;
+    @Max(999999999)
+    @Size(min = 9, max = 9)
+    private final String pid;
     private final String cid; // Optional
 
     public Passport(String input) {

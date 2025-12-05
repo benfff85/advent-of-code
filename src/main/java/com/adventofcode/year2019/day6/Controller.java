@@ -1,23 +1,14 @@
 package com.adventofcode.year2019.day6;
 
+import java.util.*;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Component("controller-day-6")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2019/day-6.txt");
-    }
 
     public DailyAnswer execute() {
         Map<String, SpaceObject> spaceObjects = new HashMap<>();

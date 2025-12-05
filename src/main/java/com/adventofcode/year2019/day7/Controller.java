@@ -1,25 +1,18 @@
 package com.adventofcode.year2019.day7;
 
+import java.math.BigInteger;
+import java.util.*;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import com.adventofcode.year2019.day5.IntComputerContext;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.math.BigInteger;
-import java.util.*;
 
 @Slf4j
 @Component("controller-day-7")
 public class Controller extends SolutionController {
-
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2019/day-7.txt");
-    }
 
     public DailyAnswer execute() {
         List<BigInteger> input = inputHelper.parseStringToBigIntList(puzzleInput.get(0));
