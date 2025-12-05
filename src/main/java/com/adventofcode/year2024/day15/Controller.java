@@ -1,28 +1,19 @@
 package com.adventofcode.year2024.day15;
 
+import static com.adventofcode.common.grid.GridUtility.constructGrid;
+import java.awt.Point;
+import java.util.*;
+import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import com.adventofcode.common.grid.Direction;
 import com.adventofcode.common.grid.GridUtility;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import static com.adventofcode.common.grid.GridUtility.constructGrid;
 
 @Slf4j
 @Component("controller-2024-15")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2024/day-15.txt");
-    }
 
     public DailyAnswer execute() {
 
@@ -67,10 +58,14 @@ public class Controller extends SolutionController {
     private List<Direction> initDirectionList(Map<Point, GridElement> grid) {
         List<Direction> directions = puzzleInput.stream().skip(GridUtility.getMaxY(grid) + 1)
                 .flatMap(line -> line.chars().mapToObj(c -> {
-                    if (c == '<') return Direction.L;
-                    if (c == '>') return Direction.R;
-                    if (c == '^') return Direction.U;
-                    if (c == 'v') return Direction.D;
+                    if (c == '<')
+                        return Direction.L;
+                    if (c == '>')
+                        return Direction.R;
+                    if (c == '^')
+                        return Direction.U;
+                    if (c == 'v')
+                        return Direction.D;
                     return null;
                 }))
                 .toList();

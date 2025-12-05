@@ -1,24 +1,16 @@
 package com.adventofcode.year2022.day21;
 
-import com.adventofcode.common.AdventOfCodeException;
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StopWatch;
-
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
+import com.adventofcode.common.*;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 @Component("controller-2022-21")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2022/day-21.txt");
-    }
 
     public DailyAnswer execute() {
 

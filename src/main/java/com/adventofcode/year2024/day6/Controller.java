@@ -1,29 +1,19 @@
 package com.adventofcode.year2024.day6;
 
+import static com.adventofcode.common.grid.GridUtility.constructGridWithoutSelectElements;
+import java.awt.Point;
+import java.util.*;
+import org.apache.commons.math3.util.Pair;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import com.adventofcode.common.grid.Direction;
 import com.adventofcode.common.grid.GridUtility;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.math3.util.Pair;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import static com.adventofcode.common.grid.GridUtility.constructGridWithoutSelectElements;
 
 @Slf4j
 @Component("controller-2024-6")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2024/day-6.txt");
-    }
 
     public DailyAnswer execute() {
 
@@ -36,16 +26,16 @@ public class Controller extends SolutionController {
         log.info("Part 1: {}", answer.getPart1());
 
         int count = 0;
-        for(Point p : initialAnalysisResult.getVisitedSpaces()) {
+        for (Point p : initialAnalysisResult.getVisitedSpaces()) {
 
-            if(p.equals(guardStartingPosition)) {
+            if (p.equals(guardStartingPosition)) {
                 continue;
             }
 
             grid.put(p, GridElement.OBSTACLE);
 
             GuardAnalysisResult analysisResult = analyzeGuardPath(grid, guardStartingPosition, Direction.U);
-            if(analysisResult.isCyclic()) {
+            if (analysisResult.isCyclic()) {
                 count++;
             }
 
@@ -66,7 +56,7 @@ public class Controller extends SolutionController {
         Set<Pair<Point, Direction>> movementEndingPositioning = new HashSet<>();
         visitedSpaces.add(guardPosition);
 
-        while(guardInGrid(guardPosition, grid)) {
+        while (guardInGrid(guardPosition, grid)) {
 
             Integer cutoff = switch (guardDirection) {
                 case U -> GridUtility.getMaxY(grid);
@@ -78,7 +68,7 @@ public class Controller extends SolutionController {
             visitedSpaces.addAll(GridUtility.slideElementUntilEncounteringElement(grid, guardPosition, guardDirection, cutoff).keySet());
 
             Pair<Point, Direction> endingPositioning = new Pair<>(guardPosition, guardDirection);
-            if(movementEndingPositioning.contains(endingPositioning)) {
+            if (movementEndingPositioning.contains(endingPositioning)) {
                 return GuardAnalysisResult.builder().visitedSpaces(visitedSpaces).isCyclic(true).build();
             }
             movementEndingPositioning.add(endingPositioning);

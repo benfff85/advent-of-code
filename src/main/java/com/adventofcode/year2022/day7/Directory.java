@@ -1,12 +1,10 @@
 package com.adventofcode.year2022.day7;
 
-import lombok.Data;
-import lombok.ToString;
-
+import static java.util.Objects.nonNull;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.Objects.nonNull;
+import lombok.Data;
+import lombok.ToString;
 
 @Data
 public class Directory {

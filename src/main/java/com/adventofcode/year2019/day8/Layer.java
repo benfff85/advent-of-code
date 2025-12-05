@@ -1,12 +1,11 @@
 package com.adventofcode.year2019.day8;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)

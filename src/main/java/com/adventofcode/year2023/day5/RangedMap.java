@@ -1,12 +1,8 @@
 package com.adventofcode.year2023.day5;
 
-import lombok.extern.slf4j.Slf4j;
-
-import java.util.Map;
-import java.util.NavigableMap;
-import java.util.TreeMap;
-
 import static java.util.Objects.nonNull;
+import java.util.*;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class RangedMap {

@@ -1,11 +1,7 @@
 package com.adventofcode.year2022.day16;
 
+import java.util.*;
 import lombok.Getter;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
 @Getter
 public class Valve {

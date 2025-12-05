@@ -1,20 +1,13 @@
 package com.adventofcode.year2022.day19;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
+import static java.util.Objects.nonNull;
+import java.util.*;
+import java.util.stream.IntStream;
 import org.apache.commons.collections4.map.LRUMap;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
-
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.IntStream;
-
-import static java.util.Objects.nonNull;
+import com.adventofcode.common.*;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
@@ -29,6 +22,7 @@ public class Controller extends SolutionController {
     private Integer cacheCutoff;
     private Integer stepCount;
 
+    // TODO Remove constructor
     public Controller(InputHelper inputHelper) {
         super(inputHelper, "puzzle-input/2022/day-19.txt");
 

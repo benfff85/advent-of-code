@@ -1,24 +1,18 @@
 package com.adventofcode.year2024.day1;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component("controller-2024-1")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2024/day-1.txt");
-    }
 
     public DailyAnswer execute() {
 

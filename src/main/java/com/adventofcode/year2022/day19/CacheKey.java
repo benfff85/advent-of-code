@@ -1,10 +1,7 @@
 package com.adventofcode.year2022.day19;
 
+import java.util.*;
 import lombok.Data;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 @Data
 public class CacheKey {

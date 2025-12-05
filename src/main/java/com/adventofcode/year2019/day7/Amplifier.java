@@ -1,16 +1,11 @@
 package com.adventofcode.year2019.day7;
 
+import static java.lang.Boolean.TRUE;
+import java.math.BigInteger;
+import java.util.*;
 import com.adventofcode.year2019.day5.IntComputer;
 import com.adventofcode.year2019.day5.IntComputerContext;
 import lombok.Getter;
-
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
-import static java.lang.Boolean.TRUE;
 
 public class Amplifier {
 

@@ -1,10 +1,9 @@
 package com.adventofcode.year2019.day12;
 
-import lombok.Getter;
-import org.springframework.util.StringUtils;
-
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.util.StringUtils;
+import lombok.Getter;
 
 @Getter
 public class Moon {

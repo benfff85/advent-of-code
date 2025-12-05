@@ -1,9 +1,8 @@
 package com.adventofcode.year2022.day11;
 
+import java.math.BigInteger;
 import lombok.Builder;
 import lombok.Data;
-
-import java.math.BigInteger;
 
 @Data
 @Builder

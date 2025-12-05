@@ -1,15 +1,13 @@
 package com.adventofcode.year2019.day5;
 
 
-import lombok.Getter;
-
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 import static org.apache.commons.lang3.StringUtils.leftPad;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import lombok.Getter;
 
 @Getter
 public class Opcode {

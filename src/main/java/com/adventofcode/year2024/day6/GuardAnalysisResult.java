@@ -1,10 +1,9 @@
 package com.adventofcode.year2024.day6;
 
+import java.awt.Point;
+import java.util.Set;
 import lombok.Builder;
 import lombok.Data;
-
-import java.awt.*;
-import java.util.Set;
 
 @Data
 @Builder

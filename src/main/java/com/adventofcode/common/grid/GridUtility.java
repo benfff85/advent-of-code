@@ -1,22 +1,15 @@
 package com.adventofcode.common.grid;
 
-import com.adventofcode.common.AdventOfCodeException;
-import org.apache.commons.math3.util.Pair;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
 import static com.adventofcode.common.grid.PointUtil.getAdjacentPoint;
 import static java.util.Collections.emptyMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import java.awt.Point;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.*;
+import org.apache.commons.math3.util.Pair;
+import com.adventofcode.common.AdventOfCodeException;
 
 public class GridUtility {
 

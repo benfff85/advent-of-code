@@ -1,8 +1,7 @@
 package com.adventofcode.year2022.day21;
 
-import lombok.Data;
-
 import static java.util.Objects.nonNull;
+import lombok.Data;
 
 @Data
 public class Monkey {

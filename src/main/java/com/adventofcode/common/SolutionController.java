@@ -2,9 +2,8 @@ package com.adventofcode.common;
 
 
 import java.util.List;
-
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.annotation.PostConstruct;
 
 public abstract class SolutionController {
     @Autowired

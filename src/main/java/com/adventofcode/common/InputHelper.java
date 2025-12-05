@@ -1,17 +1,15 @@
 package com.adventofcode.common;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
+import static java.util.Collections.emptyList;
+import static java.util.Objects.requireNonNull;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
-
-import static java.util.Collections.emptyList;
-import static java.util.Objects.requireNonNull;
+import org.springframework.stereotype.Component;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component

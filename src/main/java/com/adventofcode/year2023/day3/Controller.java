@@ -1,23 +1,15 @@
 package com.adventofcode.year2023.day3;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import com.adventofcode.common.grid.GridUtility;
-import com.adventofcode.common.grid.PrintableGridElement;
-import com.adventofcode.common.grid.SimplePrintableGridElement;
-import com.adventofcode.common.grid.SurroundingType;
-import lombok.extern.slf4j.Slf4j;
+import java.awt.Point;
+import java.util.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
-
-import java.awt.*;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import com.adventofcode.common.grid.*;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
@@ -25,10 +17,6 @@ import java.util.Map;
 public class Controller extends SolutionController {
 
     private final Map<Point, PrintableGridElement> grid = new HashMap<>();
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2023/day-3.txt");
-    }
 
     public DailyAnswer execute() {
 

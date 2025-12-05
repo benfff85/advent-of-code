@@ -1,13 +1,11 @@
 package com.adventofcode.year2022.day4;
 
-import org.apache.commons.math3.util.IntegerSequence;
-
-import java.util.List;
-
 import static java.lang.Integer.parseInt;
 import static org.apache.commons.collections4.CollectionUtils.containsAll;
 import static org.apache.commons.collections4.CollectionUtils.containsAny;
 import static org.apache.commons.collections4.IterableUtils.toList;
+import java.util.List;
+import org.apache.commons.math3.util.IntegerSequence;
 
 public class Pair {
 

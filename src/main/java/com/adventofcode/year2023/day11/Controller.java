@@ -1,30 +1,20 @@
 package com.adventofcode.year2023.day11;
 
+import static com.adventofcode.year2023.day11.GridElement.GALAXY;
+import java.awt.Point;
+import java.util.*;
+import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import com.adventofcode.common.grid.GridUtility;
 import com.adventofcode.common.grid.PointUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import static com.adventofcode.year2023.day11.GridElement.GALAXY;
 
 
 @Slf4j
 @Component("controller-2023-11")
 public class Controller extends SolutionController {
-
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2023/day-11.txt");
-    }
 
     private static long process(Map<Point, GridElement> grid, int shiftMagnitude) {
         for (int y = 0; y < GridUtility.getMaxY(grid); y++) {

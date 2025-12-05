@@ -1,10 +1,8 @@
 package com.adventofcode.year2019.day14;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import com.adventofcode.common.*;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
@@ -14,6 +12,7 @@ public class Controller extends SolutionController {
     private final ReactionRegistry reactionRegistry;
     private final ChemicalInventory chemicalInventory;
 
+    // TODO Remove constructor
     public Controller(InputHelper inputHelper, ReactionRegistry reactionRegistry, ChemicalInventory chemicalInventory) {
         super(inputHelper, "puzzle-input/2019/day-14.txt");
         this.reactionRegistry = reactionRegistry;

@@ -1,8 +1,8 @@
 package com.adventofcode.year2023.day8;
 
+import org.apache.commons.lang3.tuple.Pair;
 import com.adventofcode.common.grid.Direction;
 import lombok.Data;
-import org.apache.commons.lang3.tuple.Pair;
 
 @Data
 public class Node {

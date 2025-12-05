@@ -1,23 +1,17 @@
 package com.adventofcode.year2024.day3;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component("controller-2024-3")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2024/day-3.txt");
-    }
 
     public DailyAnswer execute() {
 
@@ -36,8 +30,8 @@ public class Controller extends SolutionController {
         dontIndices.put(Integer.MIN_VALUE, null);
 
         answer.setPart2(matches.entrySet()
-                .stream().
-                filter(p -> !isCorrupt(p.getKey(), doIndices, dontIndices))
+                .stream()
+                .filter(p -> !isCorrupt(p.getKey(), doIndices, dontIndices))
                 .map(s -> new MultiplyCommand(s.getValue()))
                 .mapToInt(MultiplyCommand::getProduct)
                 .sum());

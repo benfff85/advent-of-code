@@ -1,14 +1,12 @@
 package com.adventofcode.year2022.day13;
 
+import static java.lang.Boolean.TRUE;
+import static java.util.Objects.nonNull;
+import java.util.List;
 import com.adventofcode.common.AdventOfCodeException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
-
-import java.util.List;
-
-import static java.lang.Boolean.TRUE;
-import static java.util.Objects.nonNull;
 
 public class Packet {
 
@@ -19,8 +17,7 @@ public class Packet {
     public Packet(String packetInput) {
 
         try {
-            packetData = objectMapper.readValue(packetInput, new TypeReference<>() {
-            });
+            packetData = objectMapper.readValue(packetInput, new TypeReference<>() {});
         } catch (Exception e) {
             throw new AdventOfCodeException("Error creating packet", e);
         }
@@ -63,7 +60,7 @@ public class Packet {
             return null; // If we looped through all and didn't determine order, return null
         }
 
-        //exactly one value is an integer
+        // exactly one value is an integer
         if (leftObject instanceof List<?> leftList && rightObject instanceof Integer rightInt) {
             return customCompare(leftList, List.of(rightInt));
         } else if (leftObject instanceof Integer leftInt && rightObject instanceof List<?> rightList) {

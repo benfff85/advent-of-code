@@ -8,6 +8,7 @@ public class Cube {
     private int x;
     private int y;
     private int z;
+
     public Cube(String input) {
         String[] splitString = input.split(",");
         // Padding by one to keep away from the edge

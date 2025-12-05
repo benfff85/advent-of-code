@@ -1,26 +1,18 @@
 package com.adventofcode.year2023.day8;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import com.adventofcode.common.grid.Direction;
-import lombok.extern.slf4j.Slf4j;
+import java.util.*;
+import java.util.stream.Collectors;
 import org.apache.commons.collections4.iterators.LoopingIterator;
 import org.apache.commons.math3.util.ArithmeticUtils;
 import org.springframework.stereotype.Component;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import com.adventofcode.common.grid.Direction;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component("controller-2023-8")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2023/day-8.txt");
-    }
 
     private static long getSteps(LoopingIterator<Direction> directionIterator, Node startNode, String endNodeId) {
         long steps = 0;

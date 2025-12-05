@@ -1,8 +1,7 @@
 package com.adventofcode.year2022.day2;
 
-import lombok.Getter;
-
 import java.util.Map;
+import lombok.Getter;
 
 public enum Shape {
 
@@ -41,8 +40,8 @@ public enum Shape {
     }
 
     public static Shape getShapeWhichWillBeatOpponent(Shape opponentsShape) {
-        for(Map.Entry<Shape, Shape> entry : shapeRelationships.entrySet()) {
-            if(entry.getValue().equals(opponentsShape)) {
+        for (Map.Entry<Shape, Shape> entry : shapeRelationships.entrySet()) {
+            if (entry.getValue().equals(opponentsShape)) {
                 return entry.getKey();
             }
         }

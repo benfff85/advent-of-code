@@ -1,24 +1,17 @@
 package com.adventofcode.year2020.day1;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
+import static com.google.common.collect.Sets.combinations;
 import java.util.HashSet;
 import java.util.Set;
-
-import static com.google.common.collect.Sets.combinations;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 @Component("controller-2020-1")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2020/day-1.txt");
-    }
 
     public DailyAnswer execute() {
         Set<Integer> input = new HashSet<>(inputHelper.parseStringListToIntList(puzzleInput));

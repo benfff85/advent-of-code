@@ -1,14 +1,12 @@
 package com.adventofcode.common.grid;
 
-import com.adventofcode.common.AdventOfCodeException;
-import org.apache.commons.math3.util.IntegerSequence;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
 import static java.lang.Math.*;
 import static org.apache.commons.collections4.IterableUtils.toList;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.math3.util.IntegerSequence;
+import com.adventofcode.common.AdventOfCodeException;
 
 public class PointUtil {
 

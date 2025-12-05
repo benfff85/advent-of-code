@@ -1,13 +1,10 @@
 package com.adventofcode.year2023.day12;
 
+import java.util.*;
+import java.util.stream.IntStream;
+import org.apache.commons.math3.util.Combinations;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.math3.util.Combinations;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.IntStream;
 
 @Slf4j
 @Data
@@ -54,7 +51,7 @@ public class SpringRow {
         log.info("({}|{})", unknownCount, unknownThatMustBeBrokenCount);
 
         // TODO need to optimize for part 2
-        if(shouldUnfold) {
+        if (shouldUnfold) {
             return;
         }
 

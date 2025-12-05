@@ -1,22 +1,16 @@
 package com.adventofcode.year2024.day11;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.stereotype.Component;
-
 import java.util.*;
 import java.util.stream.Collectors;
+import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component("controller-2024-11")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2024/day-11.txt");
-    }
 
     public DailyAnswer execute() {
 
@@ -37,16 +31,16 @@ public class Controller extends SolutionController {
                 .collect(Collectors.toMap(Map.Entry::getKey, entry -> (long) entry.getValue()));
 
         Long newNum;
-        for(int step = 0; step < steps; step++) {
+        for (int step = 0; step < steps; step++) {
 
             Map<Long, Long> stepSpecificFrequencyMap = new HashMap<>();
-            for(Map.Entry<Long, Long> entry : numberFrequencyMap.entrySet()) {
+            for (Map.Entry<Long, Long> entry : numberFrequencyMap.entrySet()) {
 
                 long num = entry.getKey();
-                if(num == 0) {
+                if (num == 0) {
                     newNum = 1L;
                     stepSpecificFrequencyMap.put(newNum, stepSpecificFrequencyMap.getOrDefault(newNum, 0L) + entry.getValue());
-                } else if(String.valueOf(num).length() % 2 == 0) {
+                } else if (String.valueOf(num).length() % 2 == 0) {
                     int length = String.valueOf(num).length();
 
                     newNum = Long.parseLong(String.valueOf(num).substring(0, length / 2));

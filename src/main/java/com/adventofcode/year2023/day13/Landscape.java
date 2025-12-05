@@ -1,16 +1,12 @@
 package com.adventofcode.year2023.day13;
 
+import static java.util.Objects.nonNull;
+import java.awt.Point;
+import java.util.*;
+import java.util.stream.Collectors;
 import com.adventofcode.common.grid.GridUtility;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-
-import java.awt.*;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import static java.util.Objects.nonNull;
 
 @Slf4j
 @Data

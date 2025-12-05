@@ -1,11 +1,9 @@
 package com.adventofcode.year2022.day18;
 
-import lombok.extern.slf4j.Slf4j;
-
-import java.util.*;
-
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import java.util.*;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class LavaDroplet {
@@ -88,11 +86,11 @@ public class LavaDroplet {
 
             // Check all six directions
             checkAdjacent(cube, -1, 0, 0); // left
-            checkAdjacent(cube, 1, 0, 0);  // right
+            checkAdjacent(cube, 1, 0, 0); // right
             checkAdjacent(cube, 0, -1, 0); // down
-            checkAdjacent(cube, 0, 1, 0);  // up
+            checkAdjacent(cube, 0, 1, 0); // up
             checkAdjacent(cube, 0, 0, -1); // forward
-            checkAdjacent(cube, 0, 0, 1);  // backward
+            checkAdjacent(cube, 0, 0, 1); // backward
 
         }
     }

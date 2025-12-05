@@ -1,12 +1,10 @@
 package com.adventofcode.year2022.day9;
 
+import static com.adventofcode.common.grid.SurroundingType.ALL;
+import java.awt.Point;
 import com.adventofcode.common.grid.PointUtil;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-
-import java.awt.*;
-
-import static com.adventofcode.common.grid.SurroundingType.ALL;
 
 @Slf4j
 public class RopeSegment {

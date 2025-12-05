@@ -1,12 +1,10 @@
 package com.adventofcode.year2022.day11;
 
-import lombok.Getter;
-import lombok.Setter;
-
+import static java.lang.Integer.parseInt;
 import java.math.BigInteger;
 import java.util.*;
-
-import static java.lang.Integer.parseInt;
+import lombok.Getter;
+import lombok.Setter;
 
 public abstract class Monkey {
 

@@ -1,21 +1,15 @@
 package com.adventofcode.year2019.day1;
 
+import java.util.List;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 
 @Slf4j
 @Component("controller-day-1")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2019/day-1.txt");
-    }
 
     public DailyAnswer execute() {
         List<Integer> input = inputHelper.parseStringListToIntList(puzzleInput);

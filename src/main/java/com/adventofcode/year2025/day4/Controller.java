@@ -1,25 +1,20 @@
 package com.adventofcode.year2025.day4;
 
+import static com.adventofcode.common.grid.GridUtility.constructGrid;
+import java.awt.Point;
 import java.util.Map;
 import java.util.Set;
 import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import com.adventofcode.common.grid.GridUtility;
 import com.adventofcode.common.grid.SurroundingType;
 import lombok.extern.slf4j.Slf4j;
-import java.awt.*;
-import static com.adventofcode.common.grid.GridUtility.constructGrid;
 
 
 @Slf4j
 @Component("controller-2025-4")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2025/day-4.txt");
-    }
 
     public DailyAnswer execute() {
 

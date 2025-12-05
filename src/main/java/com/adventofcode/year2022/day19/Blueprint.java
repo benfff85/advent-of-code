@@ -1,9 +1,8 @@
 package com.adventofcode.year2022.day19;
 
-import lombok.Data;
-
 import java.util.EnumMap;
 import java.util.Map;
+import lombok.Data;
 
 @Data
 public class Blueprint {

@@ -1,27 +1,20 @@
 package com.adventofcode.year2023.day6;
 
-import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
-import com.adventofcode.common.SolutionController;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.IntStream;
-
 import static java.lang.Long.parseLong;
 import static org.apache.commons.lang3.StringUtils.deleteWhitespace;
 import static org.apache.commons.lang3.StringUtils.normalizeSpace;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.IntStream;
+import org.springframework.stereotype.Component;
+import com.adventofcode.common.DailyAnswer;
+import com.adventofcode.common.SolutionController;
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 @Component("controller-2023-6")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2023/day-6.txt");
-    }
 
     public DailyAnswer execute() {
 

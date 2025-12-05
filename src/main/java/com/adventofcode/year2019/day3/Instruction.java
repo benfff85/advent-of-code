@@ -1,9 +1,8 @@
 package com.adventofcode.year2019.day3;
 
+import static java.lang.Integer.parseInt;
 import com.adventofcode.common.grid.Direction;
 import lombok.Data;
-
-import static java.lang.Integer.parseInt;
 
 @Data
 public class Instruction {

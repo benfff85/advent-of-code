@@ -1,23 +1,15 @@
 package com.adventofcode.year2019.day15;
 
-import com.adventofcode.common.grid.GridUtility;
-import com.adventofcode.common.grid.PointUtil;
-import com.adventofcode.common.grid.PrintableGridElement;
-import com.adventofcode.common.grid.SimplePrintableGridElement;
-import com.adventofcode.common.grid.Direction;
+import static com.adventofcode.common.grid.Direction.*;
+import static java.lang.Boolean.TRUE;
+import java.awt.Point;
+import java.math.BigInteger;
+import java.util.*;
+import com.adventofcode.common.grid.*;
 import com.adventofcode.year2019.day5.IntComputer;
 import com.adventofcode.year2019.day5.IntComputerContext;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-
-import java.awt.*;
-import java.math.BigInteger;
-import java.util.List;
-import java.util.Queue;
-import java.util.*;
-
-import static com.adventofcode.common.grid.Direction.*;
-import static java.lang.Boolean.TRUE;
 
 @Slf4j
 public class RepairDroid {

@@ -1,24 +1,18 @@
 package com.adventofcode.year2024.day12;
 
+import java.awt.Point;
+import java.util.*;
+import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
-import com.adventofcode.common.InputHelper;
 import com.adventofcode.common.SolutionController;
 import com.adventofcode.common.grid.GridUtility;
 import com.adventofcode.common.grid.SurroundingType;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import java.awt.*;
-import java.util.*;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Component("controller-2024-12")
 public class Controller extends SolutionController {
-
-    public Controller(InputHelper inputHelper) {
-        super(inputHelper, "puzzle-input/2024/day-12.txt");
-    }
 
     public DailyAnswer execute() {
 
@@ -39,10 +33,10 @@ public class Controller extends SolutionController {
 
         Set<Point> processedPoints = new HashSet<>();
         Set<Region> regions = new HashSet<>();
-        for(Map.Entry<Point, GridElement> entry : grid.entrySet()) {
+        for (Map.Entry<Point, GridElement> entry : grid.entrySet()) {
 
             // If point has already been mapped to a region skip to the next
-            if(processedPoints.contains(entry.getKey())) {
+            if (processedPoints.contains(entry.getKey())) {
                 continue;
             }
 
@@ -50,11 +44,11 @@ public class Controller extends SolutionController {
             Set<Point> surroundingPointsOfSameValueNotAlreadyInRegion = new HashSet<>();
             surroundingPointsOfSameValueNotAlreadyInRegion.add(entry.getKey());
 
-            while(!surroundingPointsOfSameValueNotAlreadyInRegion.isEmpty()) {
+            while (!surroundingPointsOfSameValueNotAlreadyInRegion.isEmpty()) {
 
                 regionPoints.addAll(surroundingPointsOfSameValueNotAlreadyInRegion);
                 surroundingPointsOfSameValueNotAlreadyInRegion.clear();
-                for(Point point : regionPoints) {
+                for (Point point : regionPoints) {
 
                     surroundingPointsOfSameValueNotAlreadyInRegion.addAll(GridUtility.getSurroundingElements(grid, point, SurroundingType.CARDINAL)
                             .entrySet()

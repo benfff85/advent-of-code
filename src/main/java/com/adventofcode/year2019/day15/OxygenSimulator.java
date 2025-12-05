@@ -1,14 +1,10 @@
 package com.adventofcode.year2019.day15;
 
+import static com.adventofcode.common.grid.Direction.*;
+import java.awt.Point;
+import java.util.*;
 import com.adventofcode.common.grid.PointUtil;
 import com.adventofcode.common.grid.PrintableGridElement;
-
-import java.awt.*;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import static com.adventofcode.common.grid.Direction.*;
 
 public class OxygenSimulator {
 

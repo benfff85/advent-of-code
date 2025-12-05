@@ -1,12 +1,10 @@
 package com.adventofcode.year2019.day11;
 
+import static com.adventofcode.year2019.day11.Color.BLACK;
+import java.awt.Point;
 import com.adventofcode.common.grid.PrintableGridElement;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-
-import java.awt.*;
-
-import static com.adventofcode.year2019.day11.Color.BLACK;
 
 @Getter
 @RequiredArgsConstructor
