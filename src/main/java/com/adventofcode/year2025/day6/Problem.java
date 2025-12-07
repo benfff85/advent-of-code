@@ -16,26 +16,13 @@ public class Problem {
         numbers.add(Long.parseLong(numberString.trim()));
     }
 
-    public void addNumber(Long number) {
-        numbers.add(number);
-    }
-
     public Long evaluatePart1() {
-        Long result = numbers.get(0);
-        for (int i = 1; i < numbers.size(); i++) {
-            if (operator.equals("+")) {
-                result += numbers.get(i);
-            } else if (operator.equals("*")) {
-                result *= numbers.get(i);
-            }
-        }
-        return result;
+        return evaluateOperator(numbers, operator);
     }
 
     public Long evaluatePart2() {
         int stringLength = numberStrings.getFirst().length();
         StringBuilder sb = new StringBuilder();
-
         List<Long> resultNumbers = new ArrayList<>();
 
         for (int i = stringLength - 1; i >= 0; i--) {
@@ -49,14 +36,14 @@ public class Problem {
             sb.setLength(0);
         }
 
-        if (operator.equals("+")) {
-            return resultNumbers.stream().mapToLong(Long::longValue).sum();
-        }
-
-        return resultNumbers.stream().mapToLong(Long::longValue).reduce(1, (a, b) -> a * b);
-
-
+        return evaluateOperator(resultNumbers, operator);
     }
 
-
+    private Long evaluateOperator(List<Long> nums, String operator) {
+        return switch (operator) {
+            case "+" -> nums.stream().mapToLong(Long::longValue).sum();
+            case "*" -> nums.stream().mapToLong(Long::longValue).reduce(1, (a, b) -> a * b);
+            default -> throw new IllegalArgumentException("Invalid operator: " + operator);
+        };
+    }
 }
