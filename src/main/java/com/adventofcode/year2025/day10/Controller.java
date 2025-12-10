@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import org.springframework.stereotype.Component;
 import com.adventofcode.common.DailyAnswer;
 import com.adventofcode.common.SolutionController;
+import com.microsoft.z3.*;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -20,7 +21,8 @@ public class Controller extends SolutionController {
         answer.setPart1(totalPresses);
         log.info("Part 1: {}", answer.getPart1());
 
-        answer.setPart2(null);
+        long totalPressesPart2 = machines.stream().mapToLong(this::solveMachinePart2).sum();
+        answer.setPart2(totalPressesPart2);
         log.info("Part 2: {}", answer.getPart2());
 
         return answer;
@@ -58,6 +60,59 @@ public class Controller extends SolutionController {
         }
 
         throw new RuntimeException("Could not solve machine: " + machine);
+    }
+
+    private long solveMachinePart2(Machine machine) {
+        try (Context ctx = new Context()) {
+            Optimize optimize = ctx.mkOptimize();
+
+            List<IntExpr> buttonPresses = new ArrayList<>();
+            for (int i = 0; i < machine.getButtons().size(); i++) {
+                IntExpr x = ctx.mkIntConst("x_" + i);
+                buttonPresses.add(x);
+                optimize.Add(ctx.mkGe(x, ctx.mkInt(0)));
+            }
+
+            // For each joltage counter
+            for (int c = 0; c < machine.getJoltageRequirements().size(); c++) {
+                ArithExpr sum = ctx.mkInt(0);
+                for (int b = 0; b < machine.getButtons().size(); b++) {
+                    List<Integer> buttonEffects = machine.getButtons().get(b);
+                    // Check if button b affects counter c
+                    // Button definition: list of INDICES it affects.
+                    // Joltage mode: "button ... indicates which counters it affects"
+                    // It seems the indices in the input (e.g. (1,3)) refer to indices of counters as well.
+                    // "where 0 means the first counter, 1 means the second counter"
+                    // So if button has index 'c', it adds 1 to counter 'c'.
+
+                    if (buttonEffects.contains(c)) {
+                        sum = ctx.mkAdd(sum, buttonPresses.get(b));
+                    }
+                }
+                optimize.Add(ctx.mkEq(sum, ctx.mkInt(machine.getJoltageRequirements().get(c))));
+            }
+
+            ArithExpr totalPresses = ctx.mkInt(0);
+            for (IntExpr x : buttonPresses) {
+                totalPresses = ctx.mkAdd(totalPresses, x);
+            }
+
+            optimize.MkMinimize(totalPresses);
+
+            if (optimize.Check() == Status.SATISFIABLE) {
+                // Evaluate the total presses from the model
+                ArithExpr objective = totalPresses;
+                // Since we minimized totalPresses, we can just get the value of that expression or sum individual values.
+                // Let's sum individual values to be safe and explicit.
+                long total = 0;
+                for (IntExpr x : buttonPresses) {
+                    total += Long.parseLong(optimize.getModel().evaluate(x, false).toString());
+                }
+                return total;
+            } else {
+                throw new RuntimeException("Unsatisfiable joltage requirements for machine: " + machine);
+            }
+        }
     }
 
     private List<Machine> parseInput() {
