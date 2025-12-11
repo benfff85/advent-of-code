@@ -1,6 +1,6 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.updateBuildConfiguration": "automatic",
     "java.format.settings.url": "${workspaceFolder}/.vscode/java-google-style.xml",
     "java.format.settings.profile": "GoogleStyle",
     "java.sources.organizeImports.starThreshold": 3,
