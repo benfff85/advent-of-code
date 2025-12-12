@@ -70,12 +70,12 @@ public class Controller extends SolutionController {
             for (int i = 0; i < machine.getButtons().size(); i++) {
                 IntExpr x = ctx.mkIntConst("x_" + i);
                 buttonPresses.add(x);
-                optimize.Add(ctx.mkGe(x, ctx.mkInt(0)));
+                optimizeAdd(optimize, ctx.mkGe(x, ctx.mkInt(0)));
             }
 
             // For each joltage counter
             for (int c = 0; c < machine.getJoltageRequirements().size(); c++) {
-                ArithExpr sum = ctx.mkInt(0);
+                ArithExpr<IntSort> sum = ctx.mkInt(0);
                 for (int b = 0; b < machine.getButtons().size(); b++) {
                     List<Integer> buttonEffects = machine.getButtons().get(b);
                     // Check if button b affects counter c
@@ -86,26 +86,27 @@ public class Controller extends SolutionController {
                     // So if button has index 'c', it adds 1 to counter 'c'.
 
                     if (buttonEffects.contains(c)) {
-                        sum = ctx.mkAdd(sum, buttonPresses.get(b));
+                        sum = mkAdd(ctx, sum, buttonPresses.get(b));
                     }
                 }
-                optimize.Add(ctx.mkEq(sum, ctx.mkInt(machine.getJoltageRequirements().get(c))));
+                optimizeAdd(optimize, ctx.mkEq(sum, ctx.mkInt(machine.getJoltageRequirements().get(c))));
             }
 
-            ArithExpr totalPresses = ctx.mkInt(0);
+            ArithExpr<IntSort> totalPresses = ctx.mkInt(0);
             for (IntExpr x : buttonPresses) {
-                totalPresses = ctx.mkAdd(totalPresses, x);
+                totalPresses = mkAdd(ctx, totalPresses, x);
             }
 
             optimize.MkMinimize(totalPresses);
 
-            if (optimize.Check() == Status.SATISFIABLE) {
+            if (optimizeCheck(optimize) == Status.SATISFIABLE) {
                 // Evaluate the total presses from the model
-                ArithExpr objective = totalPresses;
                 // Since we minimized totalPresses, we can just get the value of that expression or sum individual values.
                 // Let's sum individual values to be safe and explicit.
                 long total = 0;
                 for (IntExpr x : buttonPresses) {
+                    // evaluate returns Expr, converting to string and parsing likely safe for integer model
+                    // but strict parsing is better. Z3 integer values are usually simple decimals in toString.
                     total += Long.parseLong(optimize.getModel().evaluate(x, false).toString());
                 }
                 return total;
@@ -157,5 +158,20 @@ public class Controller extends SolutionController {
     }
 
     private record State(List<Boolean> lights, int presses) {
+    }
+
+    @SafeVarargs
+    private final ArithExpr<IntSort> mkAdd(Context ctx, ArithExpr<IntSort>... args) {
+        return ctx.mkAdd(args);
+    }
+
+    @SafeVarargs
+    private final void optimizeAdd(Optimize optimize, Expr<BoolSort>... constraints) {
+        optimize.Add(constraints);
+    }
+
+    @SafeVarargs
+    private final Status optimizeCheck(Optimize optimize, Expr<BoolSort>... assumptions) {
+        return optimize.Check(assumptions);
     }
 }
